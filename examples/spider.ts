@@ -4,14 +4,14 @@ import * as puppeteer from "puppeteer";
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://preview.pro.ant.design/#");
-  const RANK = ".rankingList___11Ilg li";
+  const RANK = ".antd-pro-pages-dashboard-analysis-style-rankingList li";
   await page.waitForSelector(RANK);
   const res = await page.evaluate(() => {
     const getText = (v, selector) => {
       return v.querySelector(selector) && v.querySelector(selector).innerText;
     };
     const salesRank = Array.from(
-      document.querySelectorAll(".rankingList___11Ilg li")
+      document.querySelectorAll(".antd-pro-pages-dashboard-analysis-style-rankingList li")
     );
     const data = [];
     salesRank.map(v => {
